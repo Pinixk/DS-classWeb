@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.onload = () => {
+            // $('.container').append($('.item:nth-child(1)').clone());
+            var slider = document.querySelector('[data-role="slider"]');
+            var container = document.querySelector('[data-role="slider"] div.container');
+            var items = document.querySelectorAll('[data-role="slider"] div.item');
+            var width = slider.dataset.width;
+            var height = slider.dataset.height;
+            var count = items.length;
+            // alert(count+"/"+count*width);
+            // alert(`width:${width} / height:${height} / count:${count}`);
+            slider.style.position = 'relative';
+            slider.style.overflow = 'hidden';
+            slider.style.width = `${width}px`;
+            slider.style.height = `${height}px`;
+            container.style.position = 'absolute';
+            container.style.width = `${count * width}px`;
+            container.style.overflow = 'hidden';
+            for (let i = 0; i < items.length; i++) {
+                items[ i ].style.width = `${width}px`;
+                items[ i ].style.height = `${height}px`;
+                items[ i ].style.float = 'left';
+            }   // 스타일 적용
+
+            // var btnLeft = document.querySelector('#btnLeft');
+            // var btnRight = document.querySelector('#btnRight');
+            var currentPage = 0;
+            var changePage = () => {
+                $('.container').animate({
+                    left: `${-currentPage * width}`
+                }, 300);
+            }
+
+            function autoTurnToRight() {
+                if (currentPage < count-1) {
+                    currentPage++;
+                } else {
+                    currentPage = 0;
+                    for (let i = 1; i < 10; i++) {
+                        $('.container').append($('.item:nth-child(currentPage%4)').clone());
+                    }
+                }
+                changePage();
+            }
+            setInterval(function () {
+                autoTurnToRight();
+            }, 800);
+        }
+    </script>
+    <style>
+        div.item:nth-child(1) {background: pink;}
+        div.item:nth-child(2) {background: orangered;}
+        div.item:nth-child(3) {background: blueviolet;}
+    </style>
+</head>
+
+<body>
+    <div data-role="slider" data-width="500" data-height="300">
+        <div class="container">
+            <div class="item"><h1>1</h1></div>
+            <div class="item"><h1>2</h1></div>
+            <div class="item"><h1>3</h1></div>
+        </div>
+    </div>
+</body>
+
+</html>

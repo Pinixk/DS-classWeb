@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{border: 1px solid black; padding: 2px;}
+			.wrapper{
+				display:grid;
+				grid-tempLate-columns : repeat(3, 1fr);
+				grid-auto-rows : minmax(100px, auto);
+				grid-gap: 10px;
+			}
+			.one{
+				grid-column: 1/4;
+				grid-row : 1/3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="one">1</div>
+			<div class="two">2</div>
+			<div class="three">3</div>
+			<div class="four">4</div>
+			<div class="five">5</div>
+			<div class="six">6</div>
+			<div class="seven">7</div>
+			<div class="eight">8</div>
+			<div class="nine">9</div>
+			<div class="ten">10</div>					
+		</div>
+	</body>
+</html>

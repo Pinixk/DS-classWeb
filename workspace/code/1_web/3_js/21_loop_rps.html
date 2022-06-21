@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js 가위바위보</title>
+  </head>
+  <script>
+    document.write(`<h1>가위바위보 게임을 시작합니다.</h1>`);
+
+    while (true) {
+      var opponent = Math.floor(Math.random() * 3);
+      var me = prompt("당신이 낼 것(0, 1, 2)을 선택하세요");
+
+      if (me == null || me == "q" || me == "Q" || me == "") break;
+      else {
+        if (me >= 0 && me < 3) {
+          let result = me - opponent;
+          if (result == -2 || result == 1)
+            alert(`${rsp(me)}/${rsp(opponent)} Win`);
+          else if (result == 0) alert(`${rsp(me)}/${rsp(opponent)} Draw`);
+          else if (result == -1 || result == 2)
+            alert(`${rsp(me)}/${rsp(opponent)} Lose`);
+        } else {
+          alert("0~2 사이의 숫자를 입력하세요");
+          continue;
+        }
+      }
+    }
+
+    function rsp(num) {
+      if (num == 0) return "가위";
+      else if (num == 1) return "바위";
+      else if (num == 2) return "보";
+    }
+  </script>
+  <body></body>
+</html>

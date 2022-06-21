@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    window.onload = function () {
+      var slider = document.querySelector('[data-role="slider"]');
+      var container = document.querySelector('[data-role="slider"] .container'); //all container class in [data-role="slider"] elements.
+      var items = document.querySelectorAll('[data-role="slider"] div.item');    //all div.item  in [data-role="slider"] elements.
+      var width = slider.dataset.width;
+      var height = slider.dataset.height;
+      var count = items.length;
+      // alert(`width:${width}/ height:${height}/count:${count}`);
+      slider.style.position = 'relative'
+      slider.style.overflow = 'hidden'
+      slider.style.width = `${width}px`;
+      slider.style.height = `${height}px`;
+      container.style.background = 'yellow';
+      container.style.position = 'absolute';
+      container.style.width = `${count * width}px`;
+      container.style.overflow = 'hidden';
+      for (let i = 0; i < items.length; i++) {
+        items[ i ].style.width = `${width}px`;
+        items[ i ].style.height = `${height}px`;
+        items[ i ].style.float = 'left';
+      }
+      
+
+      var currentPage = 0;
+      function changePage() {
+        $('.container').animate({
+          left: `${-currentPage * width}`
+        }, 300);
+      };
+
+      function autoTurnToRight() {
+        currentPage++;
+        changePage();
+      }
+      setInterval(function () {
+        if (currentPage < count-1) {
+          autoTurnToRight();
+        }
+        if (currentPage == 3) {
+          currentPage = 0;
+          $('.container').animate({
+            left: `${-currentPage * width}`
+          }, 0);
+        }
+      }, 800);
+    };
+
+  </script>
+  <style>
+    * {
+      font-size: xx-large;
+    }
+
+    div.item:nth-child(1) {
+      background: blueviolet;
+    }
+
+    div.item:nth-child(2) {
+      background: pink;
+    }
+
+    div.item:nth-child(3) {
+      background: burlywood;
+    }
+
+    div.item:nth-child(4) {
+      background: blueviolet;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div data-role="slider" data-width="500" data-height="300">
+    <div class="container">
+      <div class="item">
+        <h1>
+          🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟🍟
+        </h1>
+      </div>
+      <div class="item">
+        <h1>
+          🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔
+        </h1>
+      </div>
+      <div class="item">
+        <h1>
+          🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕v🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕
+        </h1>
+      </div>
+      <div class="item">
+        <h1><em>1</em></h1>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

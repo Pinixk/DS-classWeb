@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>무한 스크롤</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function movePage(seq) {
+            var pageNum = document.querySelector("#page");  // page에 page넘버를 담아둠 
+            location.href = `jsJQ_datePicker.html?seq=${seq}&page=${pageNum.value}`
+        }
+        window.onload = () => {
+
+            var seq = 0;
+            var page = 1;
+            var appendList = function () {
+                document.querySelector("#page").value = page++;
+                for (let i = 0; i < 20; i++) {
+                    $(`<div><a href="#" onclick="movePage(${seq})" data-seq="${seq}">Infinity Scroll ${seq++}</a></div>`).appendTo("body");
+                }
+            };
+            appendList();
+
+            $(window).scroll(function () {
+                var scrollHeight = $(window).scrollTop() + $(window).height();  // 윈도우 크기에 스크롤한 크기까지 더한 값
+                var documentHeight = $(document).height();  // 문서의 전체 크기
+                // console.log($(window).height() + `/` + $(window).scrollTop() + '/' + $(document).height());
+
+                if (scrollHeight == documentHeight) appendList();
+            });
+        };
+    </script>
+    <style>
+        div {font-size: 36px; margin: 10px;}
+        a {text-decoration : none;}
+    </style>
+</head>
+
+<body>
+    <input type="hidden" id="page" name="page">
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별표 찍기 2</title>
+    <script>
+        window.onload = () => {
+            var star = ["", "★", "★★", "★★★", "★★★★", "★★★★★"];
+            var cnt = 1; // 초기값 설정에서 에러
+            var PC = true;
+
+            document.querySelector("#btn").onclick = () => {
+                let str = ""
+
+                if (cnt == 0 || cnt == 5) PC = !PC; // if문 완료
+                PC ? cnt++ : cnt--; // 삼항 연산자 완료
+
+                document.getElementById("btn").textContent = "별점 - " + star[cnt];
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">별점 - </button>
+</body>
+
+</html>

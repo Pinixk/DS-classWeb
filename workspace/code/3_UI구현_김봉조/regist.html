@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <script>
+      window.onload = function () {
+        var btnSend = document.getElementById("btnSend");
+					btnSend.onclick = function(event){
+						event.preventDefault();
+
+          var name = document.getElementById("name");
+          var pass2 = document.getElementById("pass2");
+          var repass = document.getElementById("repass");
+          var id2 = document.getElementById("id2");
+          var m1 = document.getElementById("m1");
+          var m2 = document.getElementById("m2");
+          var mail = document.getElementById("mail");
+          
+          if (name.value == "") {
+            alert("ID를 확인하세요");
+            name.focus();
+            return;
+          }
+
+          if (pass2.value == "") {
+            alert("비밀번호를 확인하세요");
+            pass2.focus();
+            return;
+          }
+
+          if (pass2.value != repass.value) {
+            alert("비밀번호가 일치하지 않습니다");
+            pass2.value = "";
+            repass.value = "";
+            pass2.focus();
+            return;
+          }
+
+          if (id2.value == "") {
+            alert("이름을 확인하세요");
+            id2.focus();
+            return;
+          }
+
+          if (m1.value == "") {
+            alert("전화번호를 입력하세요.");
+            m1.focus();
+            return;
+          }
+          if (m2.value == "") {
+            alert("전화번호를 입력하세요.");
+            m2.focus();
+            return;
+          }
+
+          if (mail.value == "") {
+            alert("E-mail을 입력하세요.");
+            mail.focus();
+            return;
+          }
+          document.getElementById("frm").submit();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form method="get" id="frm" action="good.html">
+      <table>
+        <tr>
+          <th>회원 ID</th>
+          <td><input type="text" name="name" id="name" /></td>
+        </tr>
+
+        <tr>
+          <th>비밀번호</th>
+          <td><input type="password" name="pass2" id="pass2" /></td>
+        </tr>
+
+        <tr>
+          <th>비밀번호 재확인</th>
+          <td><input type="password" name="repass" id="repass" /></td>
+        </tr>
+
+        <tr>
+          <th>회원명</th>
+          <td><input type="text" name="id2" id="id2" /></td>
+        </tr>
+
+        <tr>
+          <th>전화번호</th>
+          <td>
+            <select name="mobile" id="m0">
+              <option value="">선택하세요</option>
+              <option value="010">010</option>
+              <option value="011">011</option>
+            </select>
+            - <input type="text" name="m1" id="m1" style="width: 100px" /> -
+            <input type="text" name="m2" id="m2" style="width: 100px" />
+          </td>
+        </tr>
+
+        <tr>
+          <th>E-mail</th>
+          <td>
+            <input type="text" name="mail" id="mail" />
+            <select name="email" id="e0" style="width: 145px">
+              <option value="">선택하세요</option>
+              <option value="gmail">gmail.com</option>
+              <option value="naver">naver.com</option>
+              <option value="kakao">hanmail.com</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" id="btnSend" />
+    </form>
+  </body>
+</html>

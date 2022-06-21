@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onchange</title>
+    <script>
+      window.onload = () => {
+        var models = [
+          ["IONIQ5", "Genesis"],
+          ["EV6", "Carnival"],
+          ["Bronco", "Mustang"],
+          ["A1", "A6", "A7"],
+        ];
+
+        var maker = document.getElementById("maker");
+        maker.onchange = () => {
+          // alert(maker.selectedIndex);
+          // alert(maker.value); = alert(maker.options[maker.selectedIndex].value);
+          // alert(maker.options[maker.selectedIndex].text);
+
+          var arr = models[maker.value];
+          var str = "";
+          for (let i = 0; i < arr.length; i++) {
+            const model_no = arr[i];
+            str += `<option value="${i}">${model_no}</option>`;
+          
+
+        //   var option=document.createElement('option');
+        //   option.innerText = model_no;
+        //   model.append(option);
+        //   }
+          var model = document.querySelector("#model");
+          model.innerHTML = str;
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <select name="maker" id="maker">
+      <option value="">선택하시오</option>
+      <option value="0">Hyundai</option>
+      <option value="1">KIA</option>
+      <option value="2">Ford</option>
+      <option value="3">Audi</option>
+    </select>
+    <select name="model" id="model"></select>
+  </body>
+</html>

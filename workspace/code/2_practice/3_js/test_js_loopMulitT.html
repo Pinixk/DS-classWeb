@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      result = "";
+      for (let i = 2; i < 10; i = i + 3) {
+        for (let j = 1; j < 10; j++) {
+          for (let k = 0; k < 3; k++) {
+            if(i+k != 10) result += `${i + k} * ${j} = ${two((i + k) * j)}`;
+          }
+          result = result + "<br>";
+        }
+        result = result + "<br>";
+      }
+      document.write(result);
+
+      function two(num){
+        if (num<10) result = "<font color=white>0</font>" + num;
+        else result = num;
+        return result + "&nbsp&nbsp&nbsp;";
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

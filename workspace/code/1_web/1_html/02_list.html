@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>목록 태그</title>
+		<style>
+			ul{ list-style : none; }
+			/*
+				css의 주석처리 방식
+				안녕하세요 비오는 금요일입니다.
+			*/
+			ul li{ 
+				float : left; /* right시 오른쪽부터 li 순서가 붙음 */
+				--display : inline-block; /*inline은 width의 영향을 받지 않는다*/
+				width : 80px;
+				background : yellow; 
+				text-align : center;
+				margin-right : 5px;
+				cursor : pointer;
+			}
+			/* ol{ clear : both; } */
+			a {
+				text-decoration : none;
+				font-weight : bold;
+				color : white;
+			}
+			a:hover { color : red; }
+			ul li:hover { background : blue; }
+		</style>
+	</head>
+	<body>
+		<ul type="circle"><!-- disc, circle, square -->
+			<li><a href="http://www.google.co.kr">사과</a></li>
+			<li>수박</li>
+			<li>참외</li>
+			<li>딸기</li>
+			<li>키위</li>
+		</ul><br>
+		<ol type="A"><!-- A,a,I,i -->
+			<li>Apple
+				<ol>
+					<li>IPhone</li> <!-- 목록 안에 중첩 목록 생성가능 -->
+					<li>YouPhone</li>
+					<li>WePhone</li>
+				</ol>
+			</li>
+			<li>수박</li>
+			<li>참외</li>
+			<li>딸기</li>
+			<li>키위</li>
+		</ol>
+	</body>
+</html>

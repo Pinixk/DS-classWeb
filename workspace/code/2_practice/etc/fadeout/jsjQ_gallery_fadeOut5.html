@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    div.card:nth-child(1){background: blueviolet;}
+    div.card:nth-child(2){background: pink;}
+    div.card:nth-child(3){background: burlywood;}
+  </style>
+  <script>
+     window.onload = ()=>{
+      // $('.container').append($('.card:nth-child(1)').clone());
+      var frame = document.querySelector('.frame');
+      var cards = document.querySelectorAll('.frame div.card');
+
+      var width = frame.dataset.width;
+      var height = frame.dataset.height;
+      var count = cards.length;
+      frame.style.position = "relative";
+      frame.style.overflow = 'hidden';
+      frame.style.width = `${width}px`;
+      frame.style.height = `${height}px`;
+      for (let i = 0; i < cards.length; i++) {
+        cards[i].style.position = 'absolute';
+        cards[i].style.width= `${width}px`;
+        cards[i].style.height= `${height}px`;
+        cards[i].style.zIndex = count-1-i;
+      }
+
+      function autoFadeOut(i,k){
+        $(`.card:nth-child(${i})`).animate({opacity:k},500);
+      }
+      let i = 1;
+      setInterval(function(){
+        console.log(i);
+       if (i>count-1){
+        //  autoFadeOut(i-1,1);
+        //  autoFadeOut(i-2,1);
+        $(`.card`).animate({opacity:1},500);
+         i = 1;
+        } else{
+         autoFadeOut(i++,0);}
+        }, 500)
+    }
+  </script>
+</head>
+<body>
+  <div class="frame" data-width="500" data-height="300">
+      <div class="card"><h1>1</h1></div>
+      <div class="card"><h1>2</h1></div>
+      <div class="card"><h1>3</h1></div>
+      <div class="card"><h1>4</h1></div>
+  </div>
+</body>
+</html>

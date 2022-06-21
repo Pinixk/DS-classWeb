@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onclick</title>
+    <script>
+        function callHello(){
+            // alert('나는 인라인 모델');
+            var box = document.getElementById('box');
+            box.innerHTML = '<textarea rows=10 cols=30></textarea>';
+        }
+        window.onload = ()=>{
+            var btn = document.querySelector("#btn");
+            btn.onmouseenter = () => {
+                // alert('나는 클래식 모델');
+                var box = document.getElementById('box');
+                box.innerHTML = '';
+            };
+        };
+        window.onresize= ()=> {
+            console.log(window.outerWidth+'/'+window.outerHeight);
+        };
+    </script>
+</head>
+<body>
+    <button onclick="alert('나는 인라인 이벤트 모델')">Button</button>
+    <button onmouseenter="callHello()">Button</button>
+    <button id="btn">Button</button>
+    <div id="box"></div>
+</body>
+</html>

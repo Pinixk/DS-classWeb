@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 배열 callback</title>
+    <script>
+        var arr = new Array(10);
+        for(i=0; i < arr.length; i++) arr[i] = i;
+        
+        // console.log(arr.valueOf()); // console.log(arr)과 동일 결과
+        // console.log(arr.toString()); // 배열 안의 값을 문자열로 변환
+        // console.log(arr.join('+')); // element를 +로 연결된 문자열로 리턴
+        
+        // forEach
+        var total = 0;
+        arr.forEach(item => {       //callback 함수
+            total += item;
+        });
+        console.log(`forEach를 통한 합계 ${total}`);
+        arr.forEach(function(item){
+            console.log(item);
+        });
+        
+        
+        var isEven = function(arr){
+            // console.log(value % 2 === 0);
+            return arr % 2 === 0;
+        }
+
+        // map, filter, forEach
+        // var newArr = arr.map(isEven); // 콜백함수의 변경결과로 새로운 배열 출력
+        var newArr = arr.filter(isEven); // 콜백함수의 해당원소로 새로운 배열 출력
+        console.log(newArr.toString());
+        var newArr = arr.forEach(isEven); // 콜백함수의 각 원소에 대한 실행만
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

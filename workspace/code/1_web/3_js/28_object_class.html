@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js class객체</title>
+    <script>
+      // old한 방식
+      // var Human = function(type){
+      //   this.type = type || 'human';
+      // }
+      // Human.isHuman = function(human){
+      //   return human instanceof Human;
+      // }
+      // Human.prototype.breathe = function(){alert('후~!')};
+
+      // class 선언
+      class Human{
+        constructor(type='i'){
+          this.type = type;     // 여기서 this는 정적 스코프
+        }
+        static isHuman(i){
+          return i instanceof Human;
+        }
+        breathe(){alert('후~!')};
+      }
+
+      const teacher = new Human('teacher');
+      const student = new Human('student');
+      //속성들만 forin문으로 console 출력
+      for (const key in teacher) {
+        console.log(key);
+        alert(`${key} : ${teacher[key]}`);
+      }
+      console.log(Human.isHuman(teacher));
+      console.log(Human.isHuman(student));
+      teacher.breathe();
+    </script>
+  </head>
+  <body></body>
+</html>

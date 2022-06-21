@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 생성</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            for (let i = 0; i < 10; i++) {
+                $(`<h5>Creat Document Object ${i}By jQuery</h5>`)
+                    .css({
+                        background: "orangered",
+                        color: "white",
+                    }).appendTo("div"); // appendTo, prependTo 가능::beforeTo, afterTo 불가능
+            }
+        });
+        $(function () {
+            for (let i = 0; i < 10; i++) {
+                $("div").after(`<h5>Creat Document Object ${i}By jQuery</h5>`)
+                $('h5').css({ background: "orangered", color: "white" })
+            }
+        });
+
+        // window.onload = () => {
+        //     // var str = '';
+        //     for (let i = 0; i < 10; i++) {
+        //         // str += `<h5>Create Document Object ${i} By jQuery</h5>`;
+        //         document.body.append(document.createElement('h5'));
+        //     }
+        //     // document.body.innerHTML = str;
+        //     var h5s = document.querySelectorAll('h5');
+        //     h5s.forEach(function (item, i) {
+        //         item.textContent = `Create Document Object ${i} By jQuery`;
+        //         item.style.background = 'red';
+        //         item.style.color = 'white';
+        //     });
+        // }
+    </script>
+</head>
+
+<body>
+    <h3>Top</h3>
+    <div style="border: 1px solid black">
+        <h1>Create Document Object ${i} By jQuery</h1>
+    </div>
+    <h3>Bottom</h3>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>박스 속성</title>
+		<style>
+			div{margin:0; padding:0;}
+			.outer{
+				width:600px;
+				--background:green;
+			}
+			.inner{
+				display:inline-block;
+				width:50%; height:300px;
+				background:orange;
+				--border: 1px solid black;				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="inner">
+				<div style="width:100%"> <!-- 임의의 div를 100%로로 맞추면 안에 div를 더 넣어도 잘 안 깨짐 -->
+				</div>
+			</div><div class="inner"></div> <!-- 줄을 바꾸면 공백처리 되기 때문 -->
+		</div>
+	</body>
+</html>

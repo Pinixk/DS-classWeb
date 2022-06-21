@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 문자객체</title>
+    <script>
+        // 배열 - 대괄호
+        var arr = ['apple', 'banana', 'mango', 'strawberry']; 
+        var sayJS = function(){console.log('hello javascript');}
+
+        // 객체 - 중괄호 
+        // 2015 이전 
+        // var oldObject = {
+        //     num: 10,
+        //     sayGreeting : function() {alert('hello');},
+        //     sayJS: sayJS
+        // };
+        // console.log(oldObject.num);
+        // oldObject.sayGreeting();
+
+        // 2015 이후
+        var newObject = {
+            num: 100,
+            sayGreeting(){alert('new hello');},
+            sayJS
+        }
+        console.log(newObject.num)
+        newObject.sayGreeting();
+        newObject.sayJS();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

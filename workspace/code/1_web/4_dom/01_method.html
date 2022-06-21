@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script>
+      window.onload = () => {
+        //DOM은 document에 접근할 수 있도록 방법적인 것을 제공
+
+        //단수개 선택
+        // document.getElementById();
+        // var h1 = document.querySelector('h1');
+        // var h2 = document.querySelector('h2');
+        // h1.style.backgroundColor = 'red';
+        // h2.style.color = 'red';
+
+        //복수개 선택
+        var h1s = document.querySelectorAll("h1");
+        var h2s = document.querySelectorAll(".htwo");
+
+        for (let i = 0; i < h1s.length; i++) {
+          var h1sC = h1s[i];
+          if (i % 2 == 0) {
+            h1sC.style.color = "red";
+          } else if (i % 2 == 1) {
+            h1sC.style.color = "yellow";
+          }
+        }
+        for (let i = 0; i < h1s.length; i++) {
+          h1s[i].style.backgroundColor = "green";
+        }
+
+        for (let i = 0; i < h2s.length; i++) {
+          h2s.item(i).style.backgroundColor = "red";
+        }
+        for (const i in h2s) {
+          if (i == "entries" || i == "keys") break;
+            h2s[i].style.background = "orange";
+        }
+        for(const i of h2s){
+            i.style.background = 'orange';
+        }
+        //   getElementsByClassName으로 할 경우
+        //   var h2s = document.getElementsByClassName('htwo');
+        //   for (let i = 0; i < h2s.length; i++) {
+        //       // h2s.item(i).style.background = 'red';
+        //       h2s[i].style.background = 'red';
+        //     }
+      };
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+  </head>
+  <body>
+    <h1>DOM</h1>
+    <h1>DOM</h1>
+    <h2 class="htwo">Document Object Model</h2>
+    <h2 class="htwo">Document Object Model</h2>
+  </body>
+</html>

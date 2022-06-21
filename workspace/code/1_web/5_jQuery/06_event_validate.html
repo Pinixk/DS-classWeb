@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/classWeb/workspace/js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $('form').submit(function (event) {
+                var value = $('input[type="text"]').val();
+                if (value.replace(/[ㄱ-힣]/g, '').length == 0) {
+                    alert('진행합니다.');
+                    $('input[type="text"]').focus();
+                } else {
+                    alert('한글 이름을 입력하세요!');
+                    $('input[type="text"]').focus();
+                    event.preventDefault();
+                }
+            });
+            $('label').click(function (e) {
+                alert('label');
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            $('div').click(function (e) {
+                alert('div');
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="#">
+        <div>
+            <label>이름
+                <input type="text">
+                <input type="submit" value="전송">
+            </label>
+        </div>
+    </form>
+</body>
+
+</html>

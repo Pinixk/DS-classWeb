@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button id="btn" onclick="clickEvent()">별점 - </button>
+    <script>
+        const MAX = 1
+        const STAR = "★"
+        const Arr = Array.from({
+            length: MAX
+        }, (_, i) => i + 1).concat(Array.from({
+            length: MAX - 2
+        }, (_, i) => i + 2).reverse())
+        let idx = 0
+
+        function clickEvent() {
+            document.getElementById("btn").innerText = "별점 " + STAR.repeat(Arr[(idx++) % Arr.length])
+        }
+    </script>
+</head>
+
+<body>
+    <<button id="btn" >별점 - </button>
+</body>
+
+</html>

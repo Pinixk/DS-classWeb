@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: grid;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">rank:</button>
+    <button id="Davidbtn">true</button>
+    <script>
+      document.querySelector("#btn").onclick = () => {
+        var buttonContent = document.querySelector("#btn");
+        var Davidbtn = document.querySelector("#Davidbtn");
+        if (buttonContent.textContent.length < 11  && Davidbtn.textContent == "true" ||buttonContent.textContent.length == 5) {
+          Davidbtn.textContent = "true";
+          buttonContent.textContent += "★";
+          console.log("now adding");
+        }
+
+        if (buttonContent.textContent.length == 11 || Davidbtn.textContent == "false") {
+          console.log("now removing");
+          Davidbtn.textContent = "false";
+          let text = buttonContent.textContent;
+          let editedText = text.slice(0, -1);
+          buttonContent.textContent = editedText;
+        }
+      };
+    </script>
+    <script>
+      document.querySelector("#Davidbtn").onclick = () => {
+        var buttonContent = document.querySelector("#Davidbtn");
+        buttonContent.textContent += "";
+        if (buttonContent.textContent.length > 11) {
+          buttonContent.textContent = "Davidbtn-";
+        }
+      };
+    </script>
+  </body>
+</html>

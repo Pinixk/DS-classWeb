@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>무한 스크롤</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.onload = () => {
+            var seq = 1;
+            var appendList = function () {
+                for (let i = 0; i < 20; i++) {
+                    $(`<h1>Infinity Scroll ${seq++}</h1>`).appendTo("#list");
+                }
+            };
+            appendList();
+
+            btn = document.getElementById("btnMore"); btn.onclick = function () {appendList();}
+            // document.querySelector("#btnMore").onclick = function () {appendList();}
+            // $("#btnMore").click(function(){appendList()});
+        };
+    </script>
+</head>
+
+<body>
+    <input type="hidden" id="page" name="page">
+    <div id=list></div>
+    sadfdsafsadghsdalg
+    <button id="btnMore">더보기</button>
+</body>
+
+</html>

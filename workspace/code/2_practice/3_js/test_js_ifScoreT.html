@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js 중첩if문</title>
+    <script>
+      // function 방식 1  변수로 설정되어 hoisting이 되지 않음
+        var gradeSub = function (score, grade) {
+        const rest = score % 10;
+        if (rest > 6) grade = grade + "+";
+        else if (rest < 4) grade += "-";
+
+        return grade;
+      };
+
+      // function 방식 2
+      //  var gradeSub = (score, grade)=>{
+      //   const rest = score % 10;
+      //   if (rest > 6) grade = grade + "+";
+      //   else if (rest < 4) grade += "-";
+
+      //   return grade;
+      //  }
+
+      var score = prompt("점수를 입력하세요!");
+      var grade = "";
+      if (score >= 100) {
+        grade = "A+";
+      } else if (score >= 90) {
+        grade = gradeSub(score, "A");
+      } else if (score >= 80) {
+        grade = gradeSub(score, "B");
+      } else if (score >= 70) {
+        grade = gradeSub(score, "C");
+      } else if (score >= 60) {
+        grade = gradeSub(score, "D");
+      } else {
+        grade = "F";
+      }
+      console.log(`당신은 ${grade}학점 입니다`);
+
+      // function 방식 3
+      // function gradeSub(score, grade) {        // 내계(?) 변수
+      //   const rest = score % 10;
+      //   if (rest > 6) grade = grade + "+";
+      //   else if (rest < 4) grade += "-";
+
+      //   return grade; // 값을 돌려줄 때, 함수를 종료할 때
+      // } // fuction이나 전역변수는 hoisting 됨
+    </script>
+  </head>
+  <body></body>
+</html>

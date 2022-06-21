@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <style>
+        .modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        #box {
+            position: absolute;
+            display: inline-block;
+            background-color: skyblue;
+            top: 20vw;
+            left: 30vh;
+            width: 250px;
+            height: 200px;
+            padding: 0;
+        }
+        .header {
+            border-bottom: 1px solid black;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 0px;
+        }
+        .btn-close-popup {
+            margin: 50% 0 0 75%;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            const modal = document.querySelector('.modal');
+            const btnOpenPopup = document.querySelector('.btn-open-popup');
+            const btnClosePopup = document.querySelector('.btn-close-popup');
+
+            btnOpenPopup.addEventListener('click', (e) => {
+                modal.style.display = 'block';
+            });
+            btnClosePopup.addEventListener('click', (e) => {
+                modal.style.display = 'none';
+            });
+            // modal.addEventListener('click', (e) => {
+            //     modal.style.display = 'none';
+            // });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="modal">
+        <fieldset id="box">
+            <div class="header">알림</div>
+            <button class="btn-close-popup">닫기</button>
+        </fieldset>
+    </div>
+    <button class="btn-open-popup">Modal show</button>
+</body>
+
+</html>

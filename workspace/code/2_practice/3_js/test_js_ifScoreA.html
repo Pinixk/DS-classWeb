@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script>
+      //A(100~90), B(89~80), C(79~70), D(69~60), F(나머지. 60미만)
+      var score = prompt("점수를 입력하세요!");
+
+      var grade = "";
+
+      if (score >= 90) {
+        grade = "A";
+      } else if (score >= 80) {
+        grade = "B";
+      } else if (score >= 70) {
+        grade = "C";
+      } else if (score >= 60) {
+        grade = "D";
+      } else {
+        grade = "F";
+      }
+      //과제 : a+ 7 8 9 a0 : 4 5 6 a- : 3 2 1 0
+      // var lastnum = score%10;
+      var lastnum = score.charAt(score.length - 1);
+
+      if (lastnum >= 7) {
+        grade += "+";
+      } else if (lastnum >= 4) {
+        grade += "0";
+      } else {
+        grade += "-";
+      }
+      if (score >= 100) {
+        grade = "A+";
+      }
+
+      console.log(grade);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>기본 선택자</title>
+		<style>
+			h1{
+				background : black;
+			}
+			h1{
+				background : pink;
+			}
+			#header{
+				background : red;
+			} 
+			.foreground{
+				color:white;
+				background : purple;
+			}
+			/*
+				같은 선택자일 때는 밑에 적힌 것이 적용
+				태그 선택자보다 id, class 선택자가 우선
+				style 태그 안에서 id와 class 중에 우선순위는 id
+				id > class > tag > 전체선택자
+			*/
+		</style>
+		<!-- <link rel="stylesheet" type="text/css" href="style/style.css"> -->
+	</head>
+	<body>
+		<h1 class="foreground">선택자 (selector)</h1>
+		<h1 id="header">선택자 (selector)</h1>
+	</body>
+</html>

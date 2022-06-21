@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>	
+        html, body{
+            width: 100vw;
+            height: 100vh;
+            display:table-cell;
+            vertical-align:middle;
+            margin:0; padding:0;
+        }			
+        #box{
+            border : 1px solid black;
+            width : 300px;
+            margin: 0 auto;
+        }
+        #button{
+            position : relative;
+            left : 80px;
+        }
+        #box span{
+            display : inline-block;
+            width:80px;
+            text-align : left;
+        }
+        .btnB{
+            width : 66px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btnSend = document.getElementById("btnMain");
+					btnSend.onclick = function(event){
+						event.preventDefault();
+                
+            var id = document.getElementById("id");
+            var pass = document.getElementById("pass");
+
+                if(id.value == ""){
+                    alert('아이디를 확인하세요');
+                    id.focus();
+                    return;
+                }
+                if(pass.value == ""){
+                    alert('비밀번호를 확인하세요');
+                    pass.focus();
+                    return;
+                }
+           	document.getElementById("main").submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset id="box">
+        <form method="get" id="main" action="main.html"></form>
+            <span>ID</span><input type="text" name="id" id="id"><br>
+            <span>password</span><input type="password" name="pass" id="pass"><br>
+            <div id="button">
+                <input class="btnB" type="submit" id="btnMain" value="로그인">
+                <button type="button" onclick="location.href='regist.html'">회원가입</button>
+            </div>
+    </fieldset>
+</body>
+</html>

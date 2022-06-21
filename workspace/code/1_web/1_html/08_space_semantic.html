@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ko">
+		<meta charset="utf-8">
+		<title>시맨틱 태그</title>
+		<style>
+			.header{
+				height: 70px;
+			}
+			.box{ 
+				background : lightgray; 
+				margin : 3px;
+			}
+			.nav{
+				 height:30px; 
+				 line-height:30px;
+			}
+			li{
+				display : inline-block; 
+				background : yellow; 
+				width : 120px;
+				text-align : center;
+			}
+			.box>.box{
+				display:inline-block; 
+				width:32%; 
+				height:300px;
+				background : pink;
+				margin-right : 3px;
+			}
+			ul{
+				list-style: none;
+			}
+			.footer{
+				 height:90px; 
+				 background:gray;
+			}
+		</style>
+		<script></script>
+	</head>
+	<body>
+		<header class="box header">
+			<h1>Non-Semantic Tag</h1>
+		</header>
+		<nav class="box nav">
+			<ul>
+				<li>Menu1</li>
+				<li>Menu2</li>
+				<li>Menu3</li>
+			</ul>
+		</nav>
+		<section class="box">
+			<article class="box">left</article>
+			<article class="box">center</article>
+			<article class="box">right</article>
+		</section>
+		<aside></aside>
+		<footer class="box footer">
+			<span>LGH company All rights</span>
+		</footer>
+	</body>
+</html>

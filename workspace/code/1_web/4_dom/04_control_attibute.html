@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 조작</title>
+    <script>
+        window.onload = () => {
+            var image = document.querySelector('#image');
+            image.src = 'http://via.placeholder.com/300x200';
+            image.alt = 'placeholder image';
+            image.width = 300;
+            image.height = 200;
+            // alert(image.getAttribute("data-url"));
+            alert(image.dataset.url);
+            image.dataset.alt = 'placeholder';
+            alert(image.dataset.alt);
+        };
+    </script>
+</head>
+<body>
+    <img id="image" data-url="http://via.placeholder.com/300x200">
+</body>
+</html>

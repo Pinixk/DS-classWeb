@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>777</title>
+    <script>
+      window.onload = () => {
+        var star = -1;
+        var btn = document.querySelector("#btn");
+        document.querySelector("#btn").onclick = () => {
+          btn.textContent = "별점";
+        
+
+          if (star >= 0) {
+            for (let i = 0; i < star; i++) {
+              btn.textContent += "★";
+            }
+          } else if (star < 0) {
+            for (let i = 0; i < -1 * star; i++) {
+              btn.textContent += "★";
+            }
+          }
+          star--;
+          if (star < -5) star = 4;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn">별점</button>
+  </body>
+</html>

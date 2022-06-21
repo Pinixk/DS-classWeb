@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>30</title>
+    <script>
+        window.onload = function(){
+            // $('.container').append($('.card:nth-child(1)').clone());
+            var fram = document. querySelector('[data-role="fram"]') ;
+            //var container = document. querySelector('[data-role="fram"] .container') ;
+            var cards =  document.querySelectorAll('[data-role="fram"] .card');
+            var width = fram.dataset.width;
+            var height = fram.dataset.height;
+            var count = cards.length;
+
+
+            fram.style.position = 'relative';
+            //fram.style.overflow = 'hidden';
+            fram.style.width = `${width}px`;
+            fram.style.height = `${height}px`;
+
+           /* container.style.position = 'absolute';
+            container.style.width = `${count*width}px`;
+            container.style.overflow = "hidden";*/
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].style.position='absolute';
+                cards[i].style.width=`${width}px`;
+                cards[i].style.height=`${height}px`;
+                cards[i].style.float='left';
+                cards[i].style.zIndex = count-1-i;
+            }
+            
+            let e =1;
+            function autoFadeOut(e){
+               $(`.card:nth-child(${e})`).animate({opacity:0}, 500);
+            }
+
+             setInterval(function(){
+                if(e < count){
+                    autoFadeOut(e++);
+                }else if(e >= count){
+                    e=1;
+                    for (let i = 1; i <= count; i++) {
+                        $(`.card:nth-child(${i})`).animate({opacity:1}, 500);
+                    }
+                }
+            }, 500);
+        }
+    </script>
+    <style>
+        div.card:nth-child(1){background: blueviolet;}
+        div.card:nth-child(2){background: pink;}
+        div.card:nth-child(3){background: burlywood;}
+    </style>
+</head>
+<body>
+    <div data-role="fram" data-width="500" data-height="300">
+        <div class="container">
+            <div class="card">
+                <h1>1</h1>
+            </div>
+            <div class="card">
+                <h1>2</h1>
+            </div>
+            <div class="card">
+                <h1>3</h1>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        // $("body").html(() => {
+        //     for (let i = 0; i < 256; i++) {
+        //         output += `<div></div>`;
+        //         return output;
+        //     }
+        // });
+        
+        $(document).ready(function () {
+            var output = '';
+            for (let i = 0; i < 256; i++) {
+                output += '<div></div>';
+            }
+            document.body.innerHTML = output;
+
+
+            // $("div").each((i, item) => {
+            //     item.style.height = "2px";
+            //     item.style.background = `rgb(${i},${i},${i})`;
+            // });
+
+            $('div').css({
+                height: 2,
+                'backgroundColor': i => 'rgb(' + i + ',' + i + ',' + i + ')'
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
